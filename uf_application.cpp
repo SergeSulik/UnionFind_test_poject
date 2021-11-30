@@ -119,7 +119,6 @@ bool matrix_isConnected(vector<vector<int>> input_matrix)
 {
     int     p       = 0;
     int     q       = 0;
-    bool    result  = false;
     
     assert(input_matrix.size() >= 2 && input_matrix.size() <= 50);
     
@@ -140,8 +139,6 @@ bool matrix_isConnected(vector<vector<int>> input_matrix)
     p = get_linearArray_index(0, 0, input_matrix);
     q = get_linearArray_index(input_matrix.size() - 1, input_matrix.size() - 1, input_matrix);
     
-    result =  uf.isConnected(p, q);
-    
-    return result;
+    return uf.isConnected(p, q);;
 }
 
