@@ -1,7 +1,7 @@
 #include "uf_application.h"
 
 /*
- *
+ *  Function generate test matrix  for UnionFind algorithm.
  */
 vector<vector<int>> generate_test_matrix(int n)
 {
@@ -20,7 +20,7 @@ vector<vector<int>> generate_test_matrix(int n)
 }
 
 /*
- *
+ * Function conver quadrature matrix to linear array.
  */
 vector<int> convert_to_linearArray(const vector<vector<int>> &matrix)
 {
@@ -40,7 +40,7 @@ vector<int> convert_to_linearArray(const vector<vector<int>> &matrix)
 }
 
 /*
- *
+ *  Calculate index of element in the linear array.
  */
 int get_linearArray_index(int x, int y, const vector<vector<int>> &matrix)
 {
@@ -51,7 +51,8 @@ int get_linearArray_index(int x, int y, const vector<vector<int>> &matrix)
 }
 
 /*
- *
+ *  The function find relation of each elements of quadrature matrix
+ *  and forms sets of similar elements.
  */
 void check_elements_relations(UnionFind &uf, const vector<vector<int>> &matrix)
 {
@@ -113,7 +114,9 @@ void check_elements_relations(UnionFind &uf, const vector<vector<int>> &matrix)
 }
 
 /*
- *
+ *  The function checks whether the upper left and 
+ *  lower right elements of the quadrature matrix 
+ * are connected. 
  */
 bool matrix_isConnected(vector<vector<int>> input_matrix)
 {
