@@ -6,7 +6,7 @@
 UnionFind:: UnionFind(int n)
 {
     count_nodes = n;
-    nodes = new int[n];
+    nodes       = new int[n];
     
     for (int i = 0; i < count_nodes; i++)
         nodes[i] = i;

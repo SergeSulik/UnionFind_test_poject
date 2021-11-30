@@ -9,11 +9,11 @@
 
 using namespace std;
 
-const int MATRIX_SIZE = 7;
+const int MATRIX_SIZE = 3;
 
 int main()
 {
-    printf("Union find test application\n");
+    printf("Union-Find algorithm test application\n");
     
     vector<vector<int>> test_matrix = generate_test_matrix(MATRIX_SIZE);
     

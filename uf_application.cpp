@@ -1,7 +1,7 @@
 #include "uf_application.h"
 
 /*
- *  Function generate test matrix  for UnionFind algorithm.
+ *
  */
 vector<vector<int>> generate_test_matrix(int n)
 {
@@ -20,13 +20,13 @@ vector<vector<int>> generate_test_matrix(int n)
 }
 
 /*
- * Function conver quadrature matrix to linear array.
+ *
  */
 vector<int> convert_to_linearArray(const vector<vector<int>> &matrix)
 {
-    int array_size = matrix.size() * matrix.size();
-    vector<int> cnv_matrix = vector<int>(array_size);
-    int index = 0;
+    int         array_size  = matrix.size() * matrix.size();
+    vector<int> cnv_matrix  = vector<int>(array_size);
+    int         index       = 0;
     
     for (int i = 0; i < matrix.size(); i++)
     {
@@ -40,7 +40,7 @@ vector<int> convert_to_linearArray(const vector<vector<int>> &matrix)
 }
 
 /*
- *  Calculate index of element in the linear array.
+ *
  */
 int get_linearArray_index(int x, int y, const vector<vector<int>> &matrix)
 {
@@ -51,8 +51,7 @@ int get_linearArray_index(int x, int y, const vector<vector<int>> &matrix)
 }
 
 /*
- *  The function find relation of each elements of quadrature matrix
- *  and forms sets of similar elements.
+ *
  */
 void check_elements_relations(UnionFind &uf, const vector<vector<int>> &matrix)
 {
@@ -114,16 +113,19 @@ void check_elements_relations(UnionFind &uf, const vector<vector<int>> &matrix)
 }
 
 /*
- *  The function checks whether the upper left and 
- *  lower right elements of the quadrature matrix 
- * are connected. 
+ *
  */
 bool matrix_isConnected(vector<vector<int>> input_matrix)
 {
-    int p = 0;
-    int q = 0;
+    int     p       = 0;
+    int     q       = 0;
+    bool    result  = false;
     
     assert(input_matrix.size() >= 2 && input_matrix.size() <= 50);
+    
+    if (input_matrix[0][0] == 0 || 
+        input_matrix[input_matrix.size() - 1][input_matrix.size() - 1] == 0)
+    return false;
     
     for (int i = 0; i < input_matrix.size(); i++)
     {
@@ -131,13 +133,15 @@ bool matrix_isConnected(vector<vector<int>> input_matrix)
             assert(input_matrix[i][j] == 0 || input_matrix[i][j] == 1);
     }
     
-    vector<int> linear_array = convert_to_linearArray(input_matrix);
-    UnionFind uf = UnionFind(input_matrix.size() * input_matrix.size());
+    vector<int> linear_array    = convert_to_linearArray(input_matrix);
+    UnionFind   uf              = UnionFind(input_matrix.size() * input_matrix.size());
     
     check_elements_relations(uf, input_matrix);
     p = get_linearArray_index(0, 0, input_matrix);
     q = get_linearArray_index(input_matrix.size() - 1, input_matrix.size() - 1, input_matrix);
     
-    return uf.isConnected(p, q);
+    result =  uf.isConnected(p, q);
+    
+    return result;
 }
 
