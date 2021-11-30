@@ -1,2 +1,4 @@
 # UnionFind_test_poject
-A project that demonstrates the use of the UnionFind algorithm to check the presence of a path that connects the upper right corner with the lower left corner in a maze defined by a quadrature matrix. 
+
+The project demonstrates the use of the Union-Find algorithm to check the presence in the maze described by the two-dimensional square matrix,
+a path between the upper left and lower right angles.
