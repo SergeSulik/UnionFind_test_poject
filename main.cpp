@@ -9,7 +9,7 @@
 
 using namespace std;
 
-const int MATRIX_SIZE = 3;
+const int MATRIX_SIZE = 12;
 
 int main()
 {

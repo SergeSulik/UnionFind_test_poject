@@ -22,26 +22,6 @@ vector<vector<int>> generate_test_matrix(int n)
 /*
  *
  */
-vector<int> convert_to_linearArray(const vector<vector<int>> &matrix)
-{
-    int         array_size  = matrix.size() * matrix.size();
-    vector<int> cnv_matrix  = vector<int>(array_size);
-    int         index       = 0;
-    
-    for (int i = 0; i < matrix.size(); i++)
-    {
-        for (int j = 0; j < matrix.size(); j++)
-        {
-            cnv_matrix[index] = matrix[i][j];
-            index++;
-        }
-    }
-    return cnv_matrix;
-}
-
-/*
- *
- */
 int get_linearArray_index(int x, int y, const vector<vector<int>> &matrix)
 {
     assert(x >= 0 && x < matrix.size());
@@ -119,7 +99,7 @@ bool matrix_isConnected(vector<vector<int>> input_matrix)
 {
     int     p       = 0;
     int     q       = 0;
-    
+
     assert(input_matrix.size() >= 2 && input_matrix.size() <= 50);
     
     if (input_matrix[0][0] == 0 || 
@@ -132,13 +112,11 @@ bool matrix_isConnected(vector<vector<int>> input_matrix)
             assert(input_matrix[i][j] == 0 || input_matrix[i][j] == 1);
     }
     
-    vector<int> linear_array    = convert_to_linearArray(input_matrix);
     UnionFind   uf              = UnionFind(input_matrix.size() * input_matrix.size());
     
     check_elements_relations(uf, input_matrix);
     p = get_linearArray_index(0, 0, input_matrix);
     q = get_linearArray_index(input_matrix.size() - 1, input_matrix.size() - 1, input_matrix);
-    
-    return uf.isConnected(p, q);;
-}
 
+    return uf.isConnected(p, q);
+}
