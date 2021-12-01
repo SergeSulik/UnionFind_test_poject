@@ -95,16 +95,18 @@ void check_elements_relations(UnionFind &uf, const vector<vector<int>> &matrix)
 /*
  *
  */
-bool matrix_isConnected(vector<vector<int>> input_matrix)
+bool matrix_isConnected(const vector<vector<int>> &input_matrix)
 {
-    int     p       = 0;
-    int     q       = 0;
+    int p = 0;
+    int q = 0;
 
     assert(input_matrix.size() >= 2 && input_matrix.size() <= 50);
     
     if (input_matrix[0][0] == 0 || 
         input_matrix[input_matrix.size() - 1][input_matrix.size() - 1] == 0)
-    return false;
+    {
+        return false;
+    }
     
     for (int i = 0; i < input_matrix.size(); i++)
     {
@@ -112,7 +114,7 @@ bool matrix_isConnected(vector<vector<int>> input_matrix)
             assert(input_matrix[i][j] == 0 || input_matrix[i][j] == 1);
     }
     
-    UnionFind   uf              = UnionFind(input_matrix.size() * input_matrix.size());
+    UnionFind   uf = UnionFind(input_matrix.size() * input_matrix.size());
     
     check_elements_relations(uf, input_matrix);
     p = get_linearArray_index(0, 0, input_matrix);

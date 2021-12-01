@@ -24,4 +24,4 @@ struct Node
 vector<vector<int>> generate_test_matrix(int n);
 int get_linearArray_index(int x, int y, const vector<vector<int>> &matrix);
 void check_elements_relations(UnionFind &uf, const vector<vector<int>> &matrix);
-bool matrix_isConnected(vector<vector<int>> input_matrix);
+bool matrix_isConnected(const vector<vector<int>> &input_matrix);
